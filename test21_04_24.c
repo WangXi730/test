@@ -111,355 +111,361 @@
 //	return 0;
 //}
 
-////三子棋游戏
-//void Game();
-//int Menu() {
-//	printf("##########################\n");
-//	printf("######               #####\n");
-//	printf("###### 1：开始游戏   #####\n");
-//	printf("###### 2：退出游戏   #####\n");
-//	printf("######               #####\n");
-//	printf("##########################\n");
-//	printf("请选择：");
-//	int i = 0;
-//	while (1) {
-//		scanf("%d", &i);
-//		if (i == 1 || i == 2) {
-//			break;
-//		}
-//		printf("\n输入无效，请重新输入：");
-//	}
-//	if (i == 1)
-//	return 1;
-//	return 2;
-//}
-//void PVE() {
-//	int arr[3][3] = { { ' ',' ',' ' } ,{' ', ' ', ' '}, {' ', ' ', ' '} };
-//	//胜负判别
-//	char win = ' ';
-//	//落子的坐标定义
-//	int i = 0;
-//	int j = 0;
-//	//打印棋盘
-//	printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
-//	printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
-//	printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
-//	printf("\n+---+---+---+\n");
-//	while (1) {
-//		//玩家落子
-//		printf("请落子：");
-//		while (1) {
-//			scanf("%d%d", &i, &j);
-//			if (i < 3 && j < 3 && arr[i][j] == ' ') {
-//				arr[i][j] = 'x';
-//				break;
-//			}
-//			printf("\n请重新输入：");
-//		}
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
-//		printf("\n+---+---+---+\n");
-//		//判定胜负
-//		if (arr[0][0] == arr[0][1] && arr[0][0] == arr[0][2] && arr[0][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[1][0] == arr[1][1] && arr[1][0] == arr[1][2] && arr[1][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[2][0] == arr[2][1] && arr[2][0] == arr[2][2] && arr[2][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][0] == arr[1][0] && arr[0][0] == arr[2][0] && arr[0][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][1] == arr[1][1] && arr[0][1] == arr[2][1] && arr[0][1] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][2] == arr[1][2] && arr[0][2] == arr[2][2] && arr[0][2] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][0] == arr[1][1] && arr[0][0] == arr[2][2] && arr[0][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][2] == arr[1][1] && arr[0][2] == arr[2][0] && arr[0][2] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][0] != ' ' && arr[0][1] != ' ' && arr[0][2] != ' ' && arr[1][0] != ' ' && arr[1][1] != ' ' && arr[1][2] != ' ' && arr[2][1] != ' ' && arr[2][0] != ' ' && arr[2][2] != ' ') {
-//            win = '0';
-//			break;
-//		}
-//		//电脑落子 
-//		while (1) {
-//			i = (time(0) % 3);
-//			j = ((time(0)*time(0)) % 3);
-//			if (arr[i][j] == ' ') {
-//				arr[i][j] = 'o';
-//				break;
-//			}
-//		}
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
-//		printf("\n+---+---+---+\n");
-//		//判定胜负
-//		if (arr[0][0] == arr[0][1] && arr[0][0] == arr[0][2] && arr[0][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[1][0] == arr[1][1] && arr[1][0] == arr[1][2] && arr[1][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[2][0] == arr[2][1] && arr[2][0] == arr[2][2] && arr[2][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][0] == arr[1][0] && arr[0][0] == arr[2][0] && arr[0][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][1] == arr[1][1] && arr[0][1] == arr[2][1] && arr[0][1] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][2] == arr[1][2] && arr[0][2] == arr[2][2] && arr[0][2] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][0] == arr[1][1] && arr[0][0] == arr[2][2] && arr[0][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][2] == arr[1][1] && arr[0][2] == arr[2][0] && arr[0][2] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][0] != ' ' && arr[0][1] != ' ' && arr[0][2] != ' ' && arr[1][0] != ' ' && arr[1][1] != ' ' && arr[1][2] != ' ' && arr[2][1] != ' ' && arr[2][0] != ' ' && arr[2][2] != ' ') {
-//			win = '0';
-//			break;
-//		}
-//	}
-//	if (win == 'o') {
-//		printf("\n不会吧？不会吧！不会真的有人输给人工智障吧？\n");
-//	}
-//	else if (win == 'x') {
-//		printf("\n恭喜获胜！！！\n");
-//	}
-//	else {
-//		printf("\n恭喜您与人工智障打成平手！！！\n");
-//	}	
-//	int re = 0;
-//	printf("##########################\n");
-//	printf("######               #####\n");
-//	printf("###### 1；返回菜单   #####\n");
-//	printf("###### 2：再来一次   #####\n");
-//	printf("######               #####\n");
-//	printf("##########################\n");
-//	printf("请选择：");
-//	while (1) {
-//     scanf("%d", &re);
-//	 if (re == 1 || re == 2)
-//		 break;
-//	 printf("\n输入违法，请重新输入：");
-//	}
-//	if (re == 1) {
-//		re=Menu();
-//		if (re == 1) {
-//			Game();
-//		}
-//	}
-//	else if (re == 2) {
-//		PVE();
-//	}
-//}
-//
-//void PVP() {
-//	int arr[3][3] = { { ' ',' ',' ' } ,{' ', ' ', ' '}, {' ', ' ', ' '} };
-//	//胜负判别
-//	char win = ' ';
-//	//落子的坐标定义
-//	int i = 0;
-//	int j = 0;
-//	//打印棋盘
-//	printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
-//	printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
-//	printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
-//	printf("\n+---+---+---+\n");
-//	while (1) {
-//		//玩家p1落子
-//		printf("P1玩家请落子：");
-//		while (1) {
-//			scanf("%d%d", &i, &j);
-//			if (i < 3 && j < 3 && arr[i][j] == ' ') {
-//				arr[i][j] = 'x';
-//				break;
-//			}
-//			printf("\nP1玩家请重新输入：");
-//		}
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
-//		printf("\n+---+---+---+\n");
-//		//判定胜负
-//		if (arr[0][0] == arr[0][1] && arr[0][0] == arr[0][2] && arr[0][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[1][0] == arr[1][1] && arr[1][0] == arr[1][2] && arr[1][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[2][0] == arr[2][1] && arr[2][0] == arr[2][2] && arr[2][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][0] == arr[1][0] && arr[0][0] == arr[2][0] && arr[0][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][1] == arr[1][1] && arr[0][1] == arr[2][1] && arr[0][1] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][2] == arr[1][2] && arr[0][2] == arr[2][2] && arr[0][2] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][0] == arr[1][1] && arr[0][0] == arr[2][2] && arr[0][0] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][2] == arr[1][1] && arr[0][2] == arr[2][0] && arr[0][2] == 'x') {
-//			win = 'x';
-//			break;
-//		}
-//		else if (arr[0][0] != ' ' && arr[0][1] != ' ' && arr[0][2] != ' ' && arr[1][0] != ' ' && arr[1][1] != ' ' && arr[1][2] != ' ' && arr[2][1] != ' ' && arr[2][0] != ' ' && arr[2][2] != ' ') {
-//			win = '0';
-//			break;
-//		}
-//		//玩家p2落子 
-//		printf("P2玩家请落子：");
-//		while (1) {
-//			scanf("%d%d", &i, &j);
-//			if (i < 3 && j < 3 && arr[i][j] == ' ') {
-//				arr[i][j] = 'o';
-//				break;
-//			}
-//			printf("\nP2玩家请重新输入：");
-//		}
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
-//		printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
-//		printf("\n+---+---+---+\n");
-//		//判定胜负
-//		if (arr[0][0] == arr[0][1] && arr[0][0] == arr[0][2] && arr[0][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[1][0] == arr[1][1] && arr[1][0] == arr[1][2] && arr[1][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[2][0] == arr[2][1] && arr[2][0] == arr[2][2] && arr[2][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][0] == arr[1][0] && arr[0][0] == arr[2][0] && arr[0][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][1] == arr[1][1] && arr[0][1] == arr[2][1] && arr[0][1] == '0') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][2] == arr[1][2] && arr[0][2] == arr[2][2] && arr[0][2] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][0] == arr[1][1] && arr[0][0] == arr[2][2] && arr[0][0] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][2] == arr[1][1] && arr[0][2] == arr[2][0] && arr[0][2] == 'o') {
-//			win = 'o';
-//			break;
-//		}
-//		else if (arr[0][0] != ' ' && arr[0][1] != ' ' && arr[0][2] != ' ' && arr[1][0] != ' ' && arr[1][1] != ' ' && arr[1][2] != ' ' && arr[2][1] != ' ' && arr[2][0] != ' ' && arr[2][2] != ' ') {
-//			win = '0';
-//			break;
-//		}
-//	}
-//	if (win == 'o') {
-//		printf("\nP2获得胜利！！！\n");
-//	}
-//	else if (win == 'x') {
-//		printf("\nP1获得胜利！！！\n");
-//	}
-//	else {
-//		printf("\n平手！！！\n");
-//	}
-//	int re = 0;
-//	printf("##########################\n");
-//	printf("######               #####\n");
-//	printf("###### 1；返回菜单   #####\n");
-//	printf("###### 2：再来一次   #####\n");
-//	printf("######               #####\n");
-//	printf("##########################\n");
-//	printf("请选择：");
-//	while (1) {
-//		scanf("%d", &re);
-//		if (re == 1 || re == 2)
-//			break;
-//		printf("\n输入违法，请重新输入：");
-//	}
-//	if (re == 1) {
-//		re = Menu();
-//		if (re == 1) {
-//			Game();
-//		}
-//	}
-//	else if (re == 2) {
-//		PVP();
-//	}
-//}
-//
-//void Game() {
-//	char arr[3][3] = {{ ' ',' ',' ' } ,{' ', ' ', ' '}, {' ', ' ', ' '}};
-//	printf("##########################\n");
-//	printf("######               #####\n");
-//	printf("###### 1：人机对战   #####\n");
-//	printf("###### 2：双人对战   #####\n");
-//	printf("###### 3：退出游戏   #####\n");
-//	printf("######               #####\n");
-//	printf("##########################\n");
-//	printf("请选择：");
-//	int choose = 0;
-//	while (1) {
-//    scanf("%d", &choose);
-//	if (choose == 1 || choose == 2||choose==3)
-//		break;
-//	printf("\n输入无效，请重新输入：");
-//	}
-//	if (choose == 1)
-//		PVE();
-//	if (choose == 2)
-//		PVP();
-//}
-//int main() {
-//	int i=Menu();
-//	if (i == 1) {
-//		Game();
-//	}
-//		printf("再见");
-//	return 0;
-//}
-//
+//三子棋游戏
+void Game();
+int Menu() {
+	printf("##########################\n");
+	printf("######               #####\n");
+	printf("###### 1：开始游戏   #####\n");
+	printf("###### 2：退出游戏   #####\n");
+	printf("######               #####\n");
+	printf("##########################\n");
+	printf("请选择：");
+	int i = 0;
+	while (1) {
+		scanf("%d", &i);
+		if (i == 1 || i == 2) {
+			break;
+		}
+		printf("\n输入无效，请重新输入：");
+	}
+	if (i == 1)
+	return 1;
+	return 2;
+}
+void PVE() {
+	int arr[3][3] = { { ' ',' ',' ' } ,{' ', ' ', ' '}, {' ', ' ', ' '} };
+	//胜负判别
+	char win = ' ';
+	//落子的坐标定义
+	int i = 0;
+	int j = 0;
+	//打印棋盘
+	printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
+	printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
+	printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
+	printf("\n+---+---+---+\n");
+	while (1) {
+		//玩家落子
+		printf("请落子：");
+		while (1) {
+			scanf("%d%d", &i, &j);
+			if (i < 3 && j < 3 && arr[i][j] == ' ') {
+				arr[i][j] = 'x';
+				break;
+			}
+			printf("\n请重新输入：");
+		}
+		system("cls");
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
+		printf("\n+---+---+---+\n");
+		//判定胜负
+		if (arr[0][0] == arr[0][1] && arr[0][0] == arr[0][2] && arr[0][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[1][0] == arr[1][1] && arr[1][0] == arr[1][2] && arr[1][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[2][0] == arr[2][1] && arr[2][0] == arr[2][2] && arr[2][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][0] == arr[1][0] && arr[0][0] == arr[2][0] && arr[0][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][1] == arr[1][1] && arr[0][1] == arr[2][1] && arr[0][1] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][2] == arr[1][2] && arr[0][2] == arr[2][2] && arr[0][2] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][0] == arr[1][1] && arr[0][0] == arr[2][2] && arr[0][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][2] == arr[1][1] && arr[0][2] == arr[2][0] && arr[0][2] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][0] != ' ' && arr[0][1] != ' ' && arr[0][2] != ' ' && arr[1][0] != ' ' && arr[1][1] != ' ' && arr[1][2] != ' ' && arr[2][1] != ' ' && arr[2][0] != ' ' && arr[2][2] != ' ') {
+            win = '0';
+			break;
+		}
+		//电脑落子 
+		while (1) {
+			i = (time(0) % 3);
+			j = ((time(0)*time(0)) % 3);
+			if (arr[i][j] == ' ') {
+				arr[i][j] = 'o';
+				break;
+			}
+		}
+		system("cls");
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
+		printf("\n+---+---+---+\n");
+		//判定胜负
+		if (arr[0][0] == arr[0][1] && arr[0][0] == arr[0][2] && arr[0][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[1][0] == arr[1][1] && arr[1][0] == arr[1][2] && arr[1][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[2][0] == arr[2][1] && arr[2][0] == arr[2][2] && arr[2][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][0] == arr[1][0] && arr[0][0] == arr[2][0] && arr[0][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][1] == arr[1][1] && arr[0][1] == arr[2][1] && arr[0][1] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][2] == arr[1][2] && arr[0][2] == arr[2][2] && arr[0][2] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][0] == arr[1][1] && arr[0][0] == arr[2][2] && arr[0][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][2] == arr[1][1] && arr[0][2] == arr[2][0] && arr[0][2] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][0] != ' ' && arr[0][1] != ' ' && arr[0][2] != ' ' && arr[1][0] != ' ' && arr[1][1] != ' ' && arr[1][2] != ' ' && arr[2][1] != ' ' && arr[2][0] != ' ' && arr[2][2] != ' ') {
+			win = '0';
+			break;
+		}
+	}
+	if (win == 'o') {
+		printf("\n不会吧？不会吧！不会真的有人输给人工智障吧？\n");
+	}
+	else if (win == 'x') {
+		printf("\n恭喜获胜！！！\n");
+	}
+	else {
+		printf("\n恭喜您与人工智障打成平手！！！\n");
+	}	
+	int re = 0;
+	printf("##########################\n");
+	printf("######               #####\n");
+	printf("###### 1；返回菜单   #####\n");
+	printf("###### 2：再来一次   #####\n");
+	printf("######               #####\n");
+	printf("##########################\n");
+	printf("请选择：");
+	while (1) {
+     scanf("%d", &re);
+	 if (re == 1 || re == 2)
+		 break;
+	 printf("\n输入违法，请重新输入：");
+	}
+	if (re == 1) {
+		re=Menu();
+		if (re == 1) {
+			Game();
+		}
+	}
+	else if (re == 2) {
+		PVE();
+	}
+}
+
+void PVP() {
+	int arr[3][3] = { { ' ',' ',' ' } ,{' ', ' ', ' '}, {' ', ' ', ' '} };
+	//胜负判别
+	char win = ' ';
+	//落子的坐标定义
+	int i = 0;
+	int j = 0;
+	//打印棋盘
+	printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
+	printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
+	printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
+	printf("\n+---+---+---+\n");
+	while (1) {
+		//玩家p1落子
+		printf("P1玩家请落子：");
+		while (1) {
+			scanf("%d%d", &i, &j);
+			if (i < 3 && j < 3 && arr[i][j] == ' ') {
+				arr[i][j] = 'x';
+				break;
+			}
+			printf("\nP1玩家请重新输入：");
+		}
+		system("cls");
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
+		printf("\n+---+---+---+\n");
+		//判定胜负
+		if (arr[0][0] == arr[0][1] && arr[0][0] == arr[0][2] && arr[0][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[1][0] == arr[1][1] && arr[1][0] == arr[1][2] && arr[1][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[2][0] == arr[2][1] && arr[2][0] == arr[2][2] && arr[2][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][0] == arr[1][0] && arr[0][0] == arr[2][0] && arr[0][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][1] == arr[1][1] && arr[0][1] == arr[2][1] && arr[0][1] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][2] == arr[1][2] && arr[0][2] == arr[2][2] && arr[0][2] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][0] == arr[1][1] && arr[0][0] == arr[2][2] && arr[0][0] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][2] == arr[1][1] && arr[0][2] == arr[2][0] && arr[0][2] == 'x') {
+			win = 'x';
+			break;
+		}
+		else if (arr[0][0] != ' ' && arr[0][1] != ' ' && arr[0][2] != ' ' && arr[1][0] != ' ' && arr[1][1] != ' ' && arr[1][2] != ' ' && arr[2][1] != ' ' && arr[2][0] != ' ' && arr[2][2] != ' ') {
+			win = '0';
+			break;
+		}
+		//玩家p2落子 
+		printf("P2玩家请落子：");
+		while (1) {
+			scanf("%d%d", &i, &j);
+			if (i < 3 && j < 3 && arr[i][j] == ' ') {
+				arr[i][j] = 'o';
+				break;
+			}
+			printf("\nP2玩家请重新输入：");
+		}
+		system("cls");
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[0][0], arr[0][1], arr[0][2]);
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[1][0], arr[1][1], arr[1][2]);
+		printf("\n+---+---+---+\n| %c | %c | %c |", arr[2][0], arr[2][1], arr[2][2]);
+		printf("\n+---+---+---+\n");
+		//判定胜负
+		if (arr[0][0] == arr[0][1] && arr[0][0] == arr[0][2] && arr[0][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[1][0] == arr[1][1] && arr[1][0] == arr[1][2] && arr[1][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[2][0] == arr[2][1] && arr[2][0] == arr[2][2] && arr[2][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][0] == arr[1][0] && arr[0][0] == arr[2][0] && arr[0][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][1] == arr[1][1] && arr[0][1] == arr[2][1] && arr[0][1] == '0') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][2] == arr[1][2] && arr[0][2] == arr[2][2] && arr[0][2] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][0] == arr[1][1] && arr[0][0] == arr[2][2] && arr[0][0] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][2] == arr[1][1] && arr[0][2] == arr[2][0] && arr[0][2] == 'o') {
+			win = 'o';
+			break;
+		}
+		else if (arr[0][0] != ' ' && arr[0][1] != ' ' && arr[0][2] != ' ' && arr[1][0] != ' ' && arr[1][1] != ' ' && arr[1][2] != ' ' && arr[2][1] != ' ' && arr[2][0] != ' ' && arr[2][2] != ' ') {
+			win = '0';
+			break;
+		}
+	}
+	if (win == 'o') {
+		printf("\nP2获得胜利！！！\n");
+	}
+	else if (win == 'x') {
+		printf("\nP1获得胜利！！！\n");
+	}
+	else {
+		printf("\n平手！！！\n");
+	}
+	int re = 0;
+	printf("##########################\n");
+	printf("######               #####\n");
+	printf("###### 1；返回菜单   #####\n");
+	printf("###### 2：再来一次   #####\n");
+	printf("######               #####\n");
+	printf("##########################\n");
+	printf("请选择：");
+	while (1) {
+		scanf("%d", &re);
+		if (re == 1 || re == 2)
+			break;
+		printf("\n输入违法，请重新输入：");
+	}
+	if (re == 1) {
+		re = Menu();
+		if (re == 1) {
+			Game();
+		}
+	}
+	else if (re == 2) {
+		PVP();
+	}
+}
+
+void Game() {
+	char arr[3][3] = {{ ' ',' ',' ' } ,{' ', ' ', ' '}, {' ', ' ', ' '}};
+	printf("##########################\n");
+	printf("######               #####\n");
+	printf("###### 1：人机对战   #####\n");
+	printf("###### 2：双人对战   #####\n");
+	printf("###### 3：退出游戏   #####\n");
+	printf("######               #####\n");
+	printf("##########################\n");
+	printf("请选择：");
+	int choose = 0;
+	while (1) {
+    scanf("%d", &choose);
+	if (choose == 1 || choose == 2||choose==3)
+		break;
+	printf("\n输入无效，请重新输入：");
+	}
+	system("cls");
+	if (choose == 1)
+		PVE();
+	if (choose == 2)
+		PVP();
+}
+int main() {
+	int i=Menu();
+	system("cls");
+	if (i == 1) {
+		Game();
+	}
+		printf("再见");
+	return 0;
+}
+
