@@ -75,10 +75,5 @@ int main() {
 	a=scanf("%d", &b);
 	printf("%c",b);
 	*/
-	
-	
-	
-	
-	
 	return 0;
 }
