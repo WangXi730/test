@@ -59,8 +59,8 @@ size_t mystrlen(const char* a) {
 }
 
 int main() {
-	char arr[] = "hello world";
-	printf("%d\n", mystrlen(arr));
+	//char arr[] = "hello world";
+	//printf("%d\n", mystrlen(arr));
 	
 	
 	
@@ -82,9 +82,9 @@ int main() {
 
 
 
-	/*char arr[20] = "Hello";
+	char arr[20] = "Hello";
 	char brr[20] = "world";
 	mystrcat(arr, brr);
-	printf("%s\n", arr);*/
+	printf("%s\n", arr);
 	return 0;
 }
